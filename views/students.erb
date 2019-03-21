@@ -1,0 +1,27 @@
+<div class="container">
+  <form action="/students/delete" method="post">
+    <select id="students" name="student_id">
+      <% for student in @students %>
+        <option value="<%= student.id %>"><%= student.first_name %></option>
+      <% end %>
+    </select>
+    <button type="submit" name="delete">Delete Student</button>
+  </form>
+
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Second Name</th>
+      <th>House</th>
+      <th>Age</th>
+    </tr>
+      <% for student in @students %>
+        <tr>
+          <td><%= student.first_name%></td>
+          <td><%= student.second_name%></td>
+          <td><%= student.house().name%></td>
+          <td><%= student.age%></td>
+        </tr>
+      <% end %>
+  </table>
+</div>
